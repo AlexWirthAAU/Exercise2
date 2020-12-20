@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "HashYourCash"
+    }
+  },
+  "defaultProject": "HashYourCash",
+  "cli": {
+    "analytics": "272479c5-8c63-48f0-a700-1ce1888e96de"
+  }
 }
