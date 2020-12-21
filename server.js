@@ -4,5 +4,5 @@ const app = express();
 app.use(express.static(__dirname + '/dist/hash-your-cash'));
 app.get('/*', function(req,res) {
 res.sendFile(path.join(__dirname+
-'/dist/hash-your-cash/index.html'));});
+'/dist/index.html'));});
 app.listen(process.env.PORT || 8080);
