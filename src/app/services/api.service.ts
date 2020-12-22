@@ -8,17 +8,21 @@ import { environment } from 'src/environments/environment';
 /* @AlexWirthAAU
     Service zum Abhandeln aller API-calls.
 */
+
+
 export class ApiService {
 
-  constructor(private httpClient: HttpClient) { 
+  apiURL: string;
 
+  constructor(private httpClient: HttpClient) { 
+    this.apiURL = "https://hashyourcash.herokuapp.com";
   }
 
   public getUserData() {
-    return this.httpClient.get<any[]>(environment.apiURL + '/user')
+    return this.httpClient.get<any[]>(this.apiURL + '/user')
   }
 
   public register(userData) {
-    return this.httpClient.post<{token: string}>(environment.apiURL + '/register', userData)
+    return this.httpClient.post<{token: string}>(this.apiURL + '/register', userData)
   }
 }
