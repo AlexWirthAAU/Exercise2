@@ -18,4 +18,12 @@ export class ApiService {
   public getSomeThing() {
     return this.httpClient.get<any>(environment.apiURL + '/somepath')
   }
+
+  public getUserData() {
+    return this.httpClient.get<any[]>(environment.apiURL + '/user')
+  }
+
+  public register(userData) {
+    return this.httpClient.post<{token: string}>(environment.apiURL + '/register', userData)
+  }
 }

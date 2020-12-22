@@ -1,0 +1,68 @@
+<div class="login-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="main-wrapper">
+                    <div class="single-login">
+                        <img style="width:50%; padding-top: 5%; padding-bottom: 5%;" src="">
+                    </div>
+                    <div class="text-center">
+                        <img style="width:20%" src="">
+                        <h2>HashYourCash</h2>
+                    </div>
+                    <div class="text-center">
+                        <p class="">Tracke deine Einnahmen und Ausgaben</p>
+                    </div>
+                    <div class="text-center pt-5 mb-20">
+                        <h2 class="">Anmelden</h2>
+                    </div>
+
+                    <form [formGroup]="formData" class="needs-validation" (submit)="submitForm()">
+                        <div class="form-area pt-3">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">E-Mail Adresse</span>
+                                </div>
+                                <input type="email" class="form-control" placeholder="" aria-label=""
+                                    aria-describedby="basic-addon1" formControlName="email" required>
+                                <div class="invalid-feedback">
+                                    E-Mail Adresse muss angegeben werden
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Password</span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="" aria-label=""
+                                    aria-describedby="basic-addon1" formControlName="password" required>
+                                <div class="invalid-feedback">
+                                    Passwort muss angegeben werden
+                                </div>
+                            </div>
+
+                            <!-- 
+                <br>
+                
+                            <div *ngIf="loginAlert!=''" class="alert alert-danger" role="alert">
+                                {{loginAlert}}
+                            </div>
+                          -->
+
+                            <button type="submit" class="btn btn-secondary btn-block">Einloggen</button>
+                            <h3 class="text-center pt-3">Sie besitzen noch kein Konto?</h3>
+                            <a style="font-size:1.2em;" [routerLink]="'register'">Dann können sie sich hier
+                                registrieren</a>
+
+                            <!--
+                            <p><a href="javascript:void(0)" (click)="router.navigateByUrl('forgotpwd')">Passwort vergessen?</a></p> 
+                            <h3 class="text-center pt-3">Sie besitzen noch kein Konto?</h3>
+                            <a style="font-size:1.2em;" href="javascript:void(0)" (click)="router.navigateByUrl('register')">...dann können Sie sich hier für unser <strong>B2B</strong> Bestelltool registrieren <i class="fad fa-sign-in"></i></a>
+                            <p class="pb-5"></p>
+                -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
