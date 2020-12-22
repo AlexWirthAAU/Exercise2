@@ -9,9 +9,10 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
 
   private user: any;
+  apiURL: string;
 
   constructor(public httpClient: HttpClient) {
-
+    this.apiURL = "https://hashyourcash.herokuapp.com";
   }
  
 
@@ -19,7 +20,7 @@ export class AuthService {
     const formData = new FormData();
     formData.append('email', email);
     formData.append('password', password);
-    return this.httpClient.post<{token: string}>(environment.apiURL + '/login', formData);
+    return this.httpClient.post<{token: string}>(this.apiURL + '/login', formData);
   }
 
   setUser(user: any) {

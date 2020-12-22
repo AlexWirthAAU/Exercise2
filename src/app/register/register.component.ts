@@ -11,6 +11,8 @@ export class RegisterComponent implements OnInit {
 
   formData: any;
   formValidation: boolean;
+  userEmails: any;
+
   constructor(public api: ApiService) {
     this.formData = new FormGroup({
       first_name: new FormControl('', Validators.required),
@@ -22,6 +24,11 @@ export class RegisterComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
+  }
+
+  getAllEmails() {
+    this.userEmails = [];
   }
 
   submitForm() {
