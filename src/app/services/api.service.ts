@@ -25,4 +25,8 @@ export class ApiService {
   public register(userData) {
     return this.httpClient.post<{token: string}>(this.apiURL + '/register', userData)
   }
+
+  public getAllEmails() {
+    return this.httpClient.get<any[]>(this.apiURL + '/register/emails')
+  }
 }

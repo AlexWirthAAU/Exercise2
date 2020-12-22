@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -10,10 +11,12 @@ import { ApiService } from '../services/api.service';
 export class RegisterComponent implements OnInit {
 
   formData: any;
-  formValidation: boolean;
+  formValidation: boolean = false;
   userEmails: any;
+  passwordErr: string = null;
+  emailErr: string = null;
 
-  constructor(public api: ApiService) {
+  constructor(public api: ApiService, public router: Router) {
     this.formData = new FormGroup({
       first_name: new FormControl('', Validators.required),
       last_name: new FormControl('', Validators.required),
@@ -21,7 +24,9 @@ export class RegisterComponent implements OnInit {
       password: new FormControl('', Validators.required),
       confirm_password: new FormControl('', Validators.required)
     })
-   }
+
+    this.getAllEmails();
+  }
 
   ngOnInit(): void {
 
@@ -29,22 +34,48 @@ export class RegisterComponent implements OnInit {
 
   getAllEmails() {
     this.userEmails = [];
+    this.api.getAllEmails().subscribe(
+      emails => {
+        this.userEmails = emails;
+        console.log("User Emails: ", this.userEmails)
+      }, //success path
+      error => {
+        console.log(error);
+      }, //error path
+    );
   }
 
   submitForm() {
-    console.log("Submit")
-    if(this.formData.value.username !== "" && this.formData.value.email !== "" && this.formData.value.password !== "" && this.formData.value.confirm_password !== "") {
-      if(this.formData.value.password === this.formData.value.confirm_password) {
-        this.formValidation = true;
-        this.api.register(this.formData.value).subscribe(
-          response => {
-            console.log(response)
-          }, //success path
-          error => {
-            console.error(error)
-          } //error path
-        );
+    this.emailErr = null;
+    this.passwordErr = null;
+    if (this.formData.value.username !== "" && this.formData.value.email !== "" && this.formData.value.password !== "" && this.formData.value.confirm_password !== "") {
+      if (this.formData.value.password === this.formData.value.confirm_password) {
+        if (this.checkEmail()) {
+          this.formValidation = true;
+          this.api.register(this.formData.value).subscribe(
+            response => {
+              console.log(response)
+              this.router.navigate(['/'])
+            }, //success path
+            error => {
+              console.error(error)
+            } //error path
+          );
+        }
+      } else {
+        this.passwordErr = "Passwörter stimmen nicht überein!"
       }
+    }
+  }
+
+  checkEmail(): boolean {
+    let resultArr = this.userEmails.filter(x => x && x.email && x.email === this.formData.value.email);
+    if (resultArr.length > 0) {
+      this.emailErr = "E-Mail Adress ist schon vergeben."
+      return false;
+    } else {
+      this.emailErr = null;
+      return true;
     }
   }
 

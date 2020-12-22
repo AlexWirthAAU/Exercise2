@@ -17,10 +17,11 @@ export class AuthService {
  
 
   login(email: string, password: string) {
-    const formData = new FormData();
-    formData.append('email', email);
-    formData.append('password', password);
-    return this.httpClient.post<{token: string}>(this.apiURL + '/login', formData);
+    let userInput = {
+      "email": email,
+      "password": password,
+    }
+    return this.httpClient.post<{token: string}>(this.apiURL + '/login', userInput);
   }
 
   setUser(user: any) {
