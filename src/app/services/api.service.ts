@@ -14,11 +14,6 @@ export class ApiService {
 
   }
 
-  //example: (nur zur Demonstration)
-  public getSomeThing() {
-    return this.httpClient.get<any>(environment.apiURL + '/somepath')
-  }
-
   public getUserData() {
     return this.httpClient.get<any[]>(environment.apiURL + '/user')
   }
