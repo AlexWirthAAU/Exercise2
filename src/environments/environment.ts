@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiURL: 'https://hashyourcash.herokuapp.com',
+  version: '1.0'
 };
 
 /*
