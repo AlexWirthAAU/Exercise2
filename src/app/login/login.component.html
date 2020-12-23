@@ -39,19 +39,19 @@
                                     Passwort muss angegeben werden
                                 </div>
                             </div>
-
-                            <!-- 
-                <br>
-                
-                            <div *ngIf="loginAlert!=''" class="alert alert-danger" role="alert">
-                                {{loginAlert}}
-                            </div>
-                          -->
-
+                            <div *ngIf="wrongPassword != null" class="alert alert-danger" role="alert">{{wrongPassword}}</div>
                             <button type="submit" class="btn btn-secondary btn-block">Einloggen</button>
+                            <div style="text-align: center">
+                                <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'forgotpw'">Passwort vergessen?</a>
+                            </div>
+                            <br>
                             <h3 class="text-center pt-3">Sie besitzen noch kein Konto?</h3>
-                            <a style="font-size:1.2em;" [routerLink]="'register'">Dann können Sie sich hier
-                                registrieren</a>
+                            <div style="text-align: center">
+                                <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'register'">...dann können Sie sich hier
+                                registrieren </a><i class="fa fa-sign-in"></i>
+                            </div>
+
+                            
 
                             <!--
                             <p><a href="javascript:void(0)" (click)="router.navigateByUrl('forgotpwd')">Passwort vergessen?</a></p> 

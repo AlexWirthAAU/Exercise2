@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class ApiService {
   }
 
   public getUserData() {
-    return this.httpClient.get<any[]>(this.apiURL + '/user')
+    return this.httpClient.get<any[]>(this.apiURL + '/user', { headers: new HttpHeaders({'Authorization': localStorage.getItem('access_token')})})
   }
 
   public register(userData) {
@@ -27,6 +27,6 @@ export class ApiService {
   }
 
   public getAllEmails() {
-    return this.httpClient.get<any[]>(this.apiURL + '/register/emails')
+    return this.httpClient.get<any[]>(this.apiURL + '/user/emails')
   }
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode';
-import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -45,10 +45,13 @@ export class AuthService {
     var currentTime = +new Date / 1000;
     if(tokeninfo && currentTime >= tokeninfo.exp) {
       this.logout();
+      console.log("Logged out")
       return false;
     }
     return localStorage.getItem('access_token') !== null;
   }
+
+  
 
   
 

@@ -257,6 +257,38 @@
     width: 1920px;
   }
 
+  .header-top {
+    min-height:56px;
+    padding-top:18px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+    background: #2226db;
+    -webkit-box-shadow: 0px 4px 10px 0px rgba(128, 128, 128, 1);
+    -moz-box-shadow: 0px 4px 10px 0px rgba(128, 128, 128, 1);
+    box-shadow: 0px 4px 10px 0px rgba(128, 128, 128, 1);
+  }
+
+  .content-area-100 {
+    padding-bottom: 20px;
+    padding-top: 80px;
+    float: right;
+    width: 100%;
+  }
+  
+  .content-area-85 {
+    padding-bottom: 20px;
+    padding-top: 80px;
+    float: right;
+    width: 90%;
+  }
+
+  .menu-open {
+    color: #fff;
+    cursor: pointer;
+  }
+
 
   /* Responsive Styles */
   @media screen and (max-width: 767px) {

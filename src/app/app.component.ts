@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from './services/api.service';
 import { AuthService } from './services/auth.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,43 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'HashYourCash';
+  showMenu: boolean = true;
+  contentClass: string;
+  modalReference: any;
 
-  constructor(public auth: AuthService, public api: ApiService, public router: Router) {
+  constructor(public auth: AuthService, public api: ApiService, public router: Router, public modalService: NgbModal) {
+    this.loadUserData();
+  }
 
+  loadUserData() {
+    
+    this.api.getUserData().subscribe(
+      data => {
+        this.auth.setUser(data);
+        console.log("User: ", this.auth.getUser())
+      }, //success path
+      error => {
+        console.log(error);
+      } //error path
+    )
+  }
+
+  toggleMenu() {
+    this.showMenu = !this.showMenu;
+    if (this.showMenu == true) {
+      this.contentClass = "content-area-85";
+    } else {
+      this.contentClass = "content-area-100";
+    }
+    console.log(this.showMenu)
+  }
+
+  openUserMenuModal(content) {
+    //DEMO
+    this.modalReference = this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', backdrop: 'static', keyboard: false }).result.then((result) => {
+
+    }, (reason) => {
+
+    });
   }
 }

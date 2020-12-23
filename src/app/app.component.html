@@ -1,6 +1,41 @@
-<div *ngIf="router.url !== '/register'">
+<div *ngIf="!auth.loggedIn() && router.url !== '/register' && router.url !=='/forgotpw'">
   <app-login></app-login>
 </div>
+
+<div *ngIf="auth.loggedIn()">
+  <div class="header-top">
+    <div class="row ">
+      <div class="col ml-3">
+        <div class="icon ">
+          <div class="menu-open" (click)='toggleMenu()'><i style="font-size: 20px;" class="fa fa-bars"></i></div>
+        </div>
+      </div>
+      <div class="col-8 align-self-center">
+        <div class="text-center title-name" style="color: white">
+          <span>{{auth.getUser()?.first_name}} {{auth.getUser()?.last_name}}</span>
+        </div>
+      </div>
+      <div class="col mr-3">
+        <div class="icon">
+          <div class="menu-open float-right" (click)="openUserMenuModal(content)"><i style="font-size: 20px;" class="fa fa-sign-out"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header ">
+    <h4 class="modal-title" id="modal-basic-title">Benutzermenü</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <button type="button" class="btn btn-secondary btn-block" (click)="modalService.dismissAll(); auth.logout()">Ausloggen</button>
+  </div>
+</ng-template>
+
 
 
 <router-outlet></router-outlet>

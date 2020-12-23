@@ -12,14 +12,17 @@ export class LoginComponent implements OnInit {
 
   formData: any;
   formValidation: boolean = false;
+  wrongPassword: string = null;
 
-  constructor(public auth: AuthService, public api: ApiService) { }
-
-  ngOnInit(): void {
+  constructor(public auth: AuthService, public api: ApiService) {
     this.formData = new FormGroup({
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
     })
+
+   }
+
+  ngOnInit(): void {
   }
 
   loadUserData() {
@@ -36,18 +39,20 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm() {
-    this.formValidation = true;
+    this.wrongPassword = null;
     if(this.formData.value.email !== "" && this.formData.value.password !== "") {
+      this.formValidation = true;
       this.auth.login(this.formData.value.email, this.formData.value.password).subscribe(
         response => {
+          console.log(response)
           localStorage.setItem('access_token', response.token);
           this.loadUserData();
         }, //success path
         error => {
           console.log(error);
+          this.wrongPassword = "Falsche Zugangsdaten."
         } //error path
       )
     }
   }
-
 }
