@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
     })
-
    }
 
   ngOnInit(): void {
@@ -40,8 +39,8 @@ export class LoginComponent implements OnInit {
 
   submitForm() {
     this.wrongPassword = null;
+    this.formValidation = true;
     if(this.formData.value.email !== "" && this.formData.value.password !== "") {
-      this.formValidation = true;
       this.auth.login(this.formData.value.email, this.formData.value.password).subscribe(
         response => {
           console.log(response)

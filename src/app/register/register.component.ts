@@ -48,10 +48,11 @@ export class RegisterComponent implements OnInit {
   submitForm() {
     this.emailErr = null;
     this.passwordErr = null;
-    if (this.formData.value.username !== "" && this.formData.value.email !== "" && this.formData.value.password !== "" && this.formData.value.confirm_password !== "") {
+    this.formValidation = true;
+    console.log(this.formData.value)
+    if (this.formData.value.first_name !== "" && this.formData.value.last_name !== "" && this.formData.value.email !== "" && this.formData.value.password !== "" && this.formData.value.confirm_password !== "") {
       if (this.formData.value.password === this.formData.value.confirm_password) {
         if (this.checkEmail()) {
-          this.formValidation = true;
           this.api.register(this.formData.value).subscribe(
             response => {
               console.log(response)

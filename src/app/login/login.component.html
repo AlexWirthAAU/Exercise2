@@ -25,7 +25,7 @@
                                 </div>
                                 <input type="email" class="form-control" placeholder="" aria-label=""
                                     aria-describedby="basic-addon1" formControlName="email" required>
-                                <div class="invalid-feedback">
+                                <div class="invalid-feedback d-block" *ngIf="formData.controls.email.errors && formValidation==true">
                                     E-Mail Adresse muss angegeben werden
                                 </div>
                             </div>
@@ -35,7 +35,7 @@
                                 </div>
                                 <input type="password" class="form-control" placeholder="" aria-label=""
                                     aria-describedby="basic-addon1" formControlName="password" required>
-                                <div class="invalid-feedback">
+                                <div class="invalid-feedback d-block" *ngIf="formData.controls.password.errors && formValidation==true">
                                     Passwort muss angegeben werden
                                 </div>
                             </div>
