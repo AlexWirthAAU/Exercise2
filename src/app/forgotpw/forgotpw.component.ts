@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-forgotpw',
@@ -12,8 +14,14 @@ export class ForgotpwComponent implements OnInit {
   formData: any;
   formValidation: boolean = false;
   message: string = null;
-  
-  constructor(public api: ApiService) {
+  errorMessage: string = null;
+
+  constructor(public api: ApiService, public router: Router, public auth: AuthService) {
+
+    if(this.auth.loggedIn()) {
+      this.router.navigate(['/'])
+    }
+
     this.formData = new FormGroup({
       email: new FormControl('', Validators.required),
     })
@@ -32,6 +40,9 @@ export class ForgotpwComponent implements OnInit {
         }, //success path
         error => {
           console.log(error);
+          if(error.error.message === "EMAIL NOT FOUND") {
+            this.errorMessage = "Diese E-Mail existiert nicht."
+          }
         } //error path
       )
     }
