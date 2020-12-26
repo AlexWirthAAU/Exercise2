@@ -46,10 +46,10 @@
                         </form>
                     </div>
                     <div *ngIf="!isVerified">
-                        <h5 style="text-align: center">Keine Berechtigung</h5>
+                        <h5 style="text-align: center">Dein Link ist abgelaufen. Fordere einen neuen an:</h5>
                         <br>
                         <div style="text-align: center">
-                            <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="''">Zürück zum Login</a>
+                            <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'/forgotpw'">Passwort erneuern</a>
                         </div>
                     </div>
                     <div *ngIf="tokenError != null">
