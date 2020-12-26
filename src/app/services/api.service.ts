@@ -33,4 +33,8 @@ export class ApiService {
   public forgotpwRequest(email) {
     return this.httpClient.post<any>(this.apiURL + '/forgotpw/request', email)
   }
+
+  public resetpw(userData) {
+    return this.httpClient.post<any>(this.apiURL + '/forgotpw/reset', userData)
+  }
 }

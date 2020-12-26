@@ -51,6 +51,16 @@ export class AuthService {
     return localStorage.getItem('access_token') !== null;
   }
 
+  public tokenValidity(token): boolean {
+    let tokeninfo = this.getDecodedAccessToken(token);
+    var currentTime = +new Date / 1000;
+    if(tokeninfo && currentTime >= tokeninfo.exp) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   
 
   
