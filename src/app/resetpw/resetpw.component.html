@@ -10,7 +10,7 @@
                         <h2 class="">Passwort zurücksetzen</h2>
                     </div>
 
-                    <div *ngIf="isVerified">
+                    <div *ngIf="isVerified && tokenError == null">
                         <form [formGroup]="formData" class="needs-validation" (submit)="submitForm()">
                             <div class="form-area pt-3">
                                 <div class="input-group mb-3">
@@ -52,6 +52,14 @@
                             <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="''">Zürück zum Login</a>
                         </div>
                     </div>
+                    <div *ngIf="tokenError != null">
+                        <h5 style="text-align: center">{{tokenError}}</h5>
+                        <br>
+                        <div style="text-align: center">
+                            <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="'/forgotpw'">Passwort erneuern</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

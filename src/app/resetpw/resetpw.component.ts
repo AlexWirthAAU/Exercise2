@@ -16,6 +16,8 @@ export class ResetpwComponent implements OnInit {
   isVerified: boolean = false;
   resetToken: string;
   passwordErr: string = null;
+  tokenError: string = null;
+
 
   constructor(public router: Router, public api: ApiService, public auth: AuthService, public route: ActivatedRoute) {
 
@@ -41,6 +43,7 @@ export class ResetpwComponent implements OnInit {
 
   verifyToken(): void {
     if(this.auth.tokenValidity(this.resetToken)){
+      console.log("Token true")
       this.isVerified = true;
     }
   }
@@ -60,6 +63,11 @@ export class ResetpwComponent implements OnInit {
           }, //success path
           error => {
             console.log(error)
+            if(error.error.message === "Token not found") {
+              this.tokenError = "Dein Link ist abgelaufen. Fordere hier einen neuen an:"
+            } else if (error.error.message === "TOKEN ERROR") {
+              this.tokenError = "Dein Link ist abgelaufen. Fordere hier einen neuen an:"
+            }
           } //error path
         )
 

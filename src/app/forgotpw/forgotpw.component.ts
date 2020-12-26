@@ -12,7 +12,7 @@ export class ForgotpwComponent implements OnInit {
   formData: any;
   formValidation: boolean = false;
   message: string = null;
-
+  
   constructor(public api: ApiService) {
     this.formData = new FormGroup({
       email: new FormControl('', Validators.required),
