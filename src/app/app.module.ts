@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotpwComponent } from './forgotpw/forgotpw.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ResetpwComponent } from './resetpw/resetpw.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     RegisterComponent,
     LoginComponent,
     ForgotpwComponent,
+    ResetpwComponent,
   ],
   imports: [
     ReactiveFormsModule,

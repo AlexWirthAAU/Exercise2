@@ -29,4 +29,8 @@ export class ApiService {
   public getAllEmails() {
     return this.httpClient.get<any[]>(this.apiURL + '/user/emails')
   }
+
+  public forgotpwRequest(email) {
+    return this.httpClient.post<any>(this.apiURL + '/forgotpw/request', email)
+  }
 }

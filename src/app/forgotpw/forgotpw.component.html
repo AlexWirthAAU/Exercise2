@@ -1,1 +1,46 @@
-<p>forgotpw works!</p>
+<div class="login-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="main-wrapper">
+                    <div class="single-login">
+                        <img style="width:50%; padding-top: 5%; padding-bottom: 5%;" src="">
+                    </div>
+                    <div class="text-center pt-5 mb-20">
+                        <h2 class="">Passwort zurücksetzen</h2>
+                    </div>
+
+                    <div *ngIf="message === null">
+                        <form [formGroup]="formData" class="needs-validation" (submit)="submitForm()">
+                            <div class="form-area pt-3">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">E-Mail Adresse</span>
+                                    </div>
+                                    <input type="email" class="form-control" placeholder="" aria-label=""
+                                        aria-describedby="basic-addon1" formControlName="email" required>
+                                    <div class="invalid-feedback">
+                                        E-Mail Adresse muss angegeben werden
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-secondary btn-block">Senden</button>
+                                <br>
+                                <div style="text-align: center">
+                                    <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="''">Zürück zum
+                                        Login</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div *ngIf="message != null">
+                        <h5 style="text-align: center">{{ message }}</h5>
+                        <br>
+                        <div style="text-align: center">
+                            <a class="text-center pt-3" style="font-size:1.2em;" [routerLink]="''">Zürück zum Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
