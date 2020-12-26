@@ -19,6 +19,10 @@ export class ResetpwComponent implements OnInit {
 
   constructor(public router: Router, public api: ApiService, public auth: AuthService, public route: ActivatedRoute) {
 
+    if(this.auth.loggedIn()) {
+      this.router.navigate(['/'])
+    }
+
     this.route.params.subscribe(
       params => {
         this.resetToken = params.token;
@@ -55,7 +59,7 @@ export class ResetpwComponent implements OnInit {
             this.router.navigate(['/'])
           }, //success path
           error => {
-            console.error(error.message)
+            console.log(error)
           } //error path
         )
 

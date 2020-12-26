@@ -28,7 +28,7 @@ export class ForgotpwComponent implements OnInit {
       this.api.forgotpwRequest(this.formData.value).subscribe(
         data => {
           console.log(data);
-          this.message = "Du bekommst demnächst eine Mail mit der weiteren Vorgehensweise."
+          this.message = "Du bekommst demnächst eine E-Mail mit der weiteren Vorgehensweise."
         }, //success path
         error => {
           console.log(error);
