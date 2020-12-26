@@ -17,12 +17,27 @@
       </div>
       <div class="col mr-3">
         <div class="icon">
-          <div class="menu-open float-right" (click)="openUserMenuModal(content)"><i style="font-size: 20px;" class="fa fa-sign-out"></i></div>
+          <div class="menu-open float-right" (click)="openUserMenuModal(content)"><i style="font-size: 20px;"
+              class="fa fa-sign-out"></i></div>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="slide-menu" [ngClass]="showMenu ? 'active' : ''">
+    <div class="slide-menu-inner">
+      <h5 class="slide-menu-title">Meine App</h5>
+
+      <a routerLink="" routerLinkActive="active">
+        <fa-icon [icon]="faWallet" size="3x"></fa-icon><br>
+        Meine Wallets
+      </a>
+
+    </div>
+  </div>
+
 </div>
+
 
 <ng-template #content let-modal>
   <div class="modal-header ">
@@ -32,7 +47,8 @@
     </button>
   </div>
   <div class="modal-body">
-      <button type="button" class="btn btn-secondary btn-block" (click)="modalService.dismissAll(); auth.logout()">Ausloggen</button>
+    <button type="button" class="btn btn-secondary btn-block"
+      (click)="modalService.dismissAll(); auth.logout()">Ausloggen</button>
   </div>
 </ng-template>
 

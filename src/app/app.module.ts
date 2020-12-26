@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotpwComponent } from './forgotpw/forgotpw.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ForgotpwComponent } from './forgotpw/forgotpw.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule, 
+    HttpClientModule,
+    FontAwesomeModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]
