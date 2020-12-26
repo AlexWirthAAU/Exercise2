@@ -72,7 +72,7 @@ export class RegisterComponent implements OnInit {
   checkEmail(): boolean {
     let resultArr = this.userEmails.filter(x => x && x.email && x.email === this.formData.value.email);
     if (resultArr.length > 0) {
-      this.emailErr = "E-Mail Adress ist schon vergeben."
+      this.emailErr = "E-Mail Adresse ist schon vergeben."
       return false;
     } else {
       this.emailErr = null;
