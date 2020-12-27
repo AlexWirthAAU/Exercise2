@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
     this.api.getUserData().subscribe(
       data => {
         this.auth.setUser(data);
-        console.log("User: ", this.auth.getUser())
       }, //success path
       error => {
         console.log(error);
@@ -43,7 +42,6 @@ export class LoginComponent implements OnInit {
     if(this.formData.value.email !== "" && this.formData.value.password !== "") {
       this.auth.login(this.formData.value.email, this.formData.value.password).subscribe(
         response => {
-          console.log(response)
           localStorage.setItem('access_token', response.token);
           this.loadUserData();
         }, //success path

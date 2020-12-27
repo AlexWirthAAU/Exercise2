@@ -37,7 +37,6 @@ export class RegisterComponent implements OnInit {
     this.api.getAllEmails().subscribe(
       emails => {
         this.userEmails = emails;
-        console.log("User Emails: ", this.userEmails)
       }, //success path
       error => {
         console.log(error);
@@ -49,13 +48,11 @@ export class RegisterComponent implements OnInit {
     this.emailErr = null;
     this.passwordErr = null;
     this.formValidation = true;
-    console.log(this.formData.value)
     if (this.formData.value.first_name !== "" && this.formData.value.last_name !== "" && this.formData.value.email !== "" && this.formData.value.password !== "" && this.formData.value.confirm_password !== "") {
       if (this.formData.value.password === this.formData.value.confirm_password) {
         if (this.checkEmail()) {
           this.api.register(this.formData.value).subscribe(
             response => {
-              console.log(response)
               this.router.navigate(['/'])
             }, //success path
             error => {

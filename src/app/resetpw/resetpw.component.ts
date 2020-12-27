@@ -43,7 +43,6 @@ export class ResetpwComponent implements OnInit {
 
   verifyToken(): void {
     if(this.auth.tokenValidity(this.resetToken)){
-      console.log("Token true")
       this.isVerified = true;
     }
   }
@@ -58,7 +57,6 @@ export class ResetpwComponent implements OnInit {
         }
         this.api.resetpw(userData).subscribe(
           data => {
-            console.log(data);
             this.router.navigate(['/'])
           }, //success path
           error => {

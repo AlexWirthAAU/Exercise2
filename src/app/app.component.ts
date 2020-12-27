@@ -26,7 +26,6 @@ export class AppComponent {
     this.api.getUserData().subscribe(
       data => {
         this.auth.setUser(data);
-        console.log("User: ", this.auth.getUser())
       }, //success path
       error => {
         console.log(error);
@@ -41,7 +40,6 @@ export class AppComponent {
     } else {
       this.contentClass = "content-area-100";
     }
-    console.log(this.showMenu)
   }
 
   openUserMenuModal(content) {

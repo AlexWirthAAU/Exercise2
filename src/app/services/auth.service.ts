@@ -45,7 +45,6 @@ export class AuthService {
     var currentTime = +new Date / 1000;
     if(tokeninfo && currentTime >= tokeninfo.exp) {
       this.logout();
-      console.log("Logged out")
       return false;
     }
     return localStorage.getItem('access_token') !== null;
