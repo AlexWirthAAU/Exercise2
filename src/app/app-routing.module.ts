@@ -22,6 +22,8 @@ const routes: Routes = [
     component: ResetpwComponent
   }
 
+  // add my converter Path
+
 ];
 
 @NgModule({

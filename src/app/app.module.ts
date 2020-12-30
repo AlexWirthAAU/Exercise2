@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { ForgotpwComponent } from './forgotpw/forgotpw.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ResetpwComponent } from './resetpw/resetpw.component';
+import { ConverterComponent } from './converter/converter.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ResetpwComponent } from './resetpw/resetpw.component';
     LoginComponent,
     ForgotpwComponent,
     ResetpwComponent,
+    ConverterComponent,
   ],
   imports: [
     ReactiveFormsModule,
