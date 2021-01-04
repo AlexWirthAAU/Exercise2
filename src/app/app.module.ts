@@ -12,6 +12,7 @@ import { ForgotpwComponent } from './forgotpw/forgotpw.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ResetpwComponent } from './resetpw/resetpw.component';
 import { ConverterComponent } from './converter/converter.component';
+import { WalletsComponent } from './wallets/wallets.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ConverterComponent } from './converter/converter.component';
     ForgotpwComponent,
     ResetpwComponent,
     ConverterComponent,
+    WalletsComponent,
   ],
   imports: [
     ReactiveFormsModule,
