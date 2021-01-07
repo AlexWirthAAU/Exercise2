@@ -38,7 +38,6 @@ export class AuthService {
   logout() {
     localStorage.removeItem('access_token');
     window.location.reload();
-    //@Zoë FIX when logout then last opened tab (e.g. wallets) still visible
   }
 
   public loggedIn(): boolean {
