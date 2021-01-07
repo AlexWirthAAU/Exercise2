@@ -1,4 +1,22 @@
 <div *ngIf="auth.loggedIn()">
+  <div class="wallets">
+    <div *ngIf="errorMessageW != null">
+      <p>{{errorMessageW}}</p>
+    </div>
+    <div class="card" *ngFor="let elem of allWallets">
+      <h5 class="card-header">{{elem.amount}}€</h5>
+      <div class="card-body">
+        <h5 class="card-title">{{elem.name}}</h5>
+        <p class="card-text">{{elem.description}}</p>
+        <br>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <div>
+
+    </div>
+  </div>
+  <div class="modalPopover">
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title">Erstelle ein neues Wallet</h4>
@@ -40,10 +58,7 @@
     </form>
    
 </div>
-
- 
-  
 </ng-template>
-
-<button class="btn btn-outline-primary mb-2 mr-2" (click)="openBackDropCustomClass(content)">+</button>
+</div>
+<button class="btn btn-outline-primary mb-2 mr-2" (click)="openBackDropCustomClass(content)">Erstelle ein Wallet</button>
 </div>

@@ -19,6 +19,8 @@ export class WalletsComponent implements OnInit {
   faCarSide = faCarSide;
   home: string;
   profileForm: any;
+  allWallets: any;
+  errorMessageW: string;
 
   walletData = new FormGroup({
     name: new FormControl(''),
@@ -34,11 +36,23 @@ export class WalletsComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
+    this.showWallets()
   }
   openBackDropCustomClass(content) {
     this.modalService.open(content, {backdropClass: 'light-blue-backdrop'});
   }
+  showWallets():void{
+    console.log("works")
+    this.api.showW().subscribe(
+      response => {
+        this.allWallets = response
+        console.log(this.allWallets)
+      }, //success path
+      error => {
+        console.error(error)
+      } //error path
+    );
+    }
   //@Zoë currently when submitting nav link also deactivated
   createWallet(){
   if (this.walletData.value.name !== "" && this.walletData.value.description !== "" && this.walletData.value.amount !== "") {
@@ -51,4 +65,9 @@ export class WalletsComponent implements OnInit {
       } //error path
     );
   }}
+  checkWallets(){
+  if(this.allWallets === undefined || 0) {
+    this.errorMessageW = "There are no wallets yet"
+  }}
 }
+
