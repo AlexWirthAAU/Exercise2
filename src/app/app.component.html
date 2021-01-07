@@ -51,6 +51,8 @@
   </div>
 </ng-template>
 
-<div style="margin-top: 60px; margin-left: 160px;">
-  <router-outlet></router-outlet>
+<div [className]="contentClass">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
 </div>
