@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
-//import { AuthService } from '../services/auth.service';
+import { AuthService } from '../services/auth.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup } from '@angular/forms';
 import { faHome, faCarSide, faCar } from '@fortawesome/free-solid-svg-icons';
@@ -28,7 +28,7 @@ export class WalletsComponent implements OnInit {
   test: any;
 
 
-  constructor(public api: ApiService, public router: Router, private modalService: NgbModal) {
+  constructor(public auth: AuthService, public api: ApiService, public router: Router, private modalService: NgbModal) {
     //@Zoë fix this to only access the data when valid user id
    this.test = new FormControl('')
     this.home = "Haus";

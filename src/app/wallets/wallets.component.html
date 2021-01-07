@@ -1,4 +1,4 @@
-
+<div *ngIf="auth.loggedIn()">
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title">Erstelle ein neues Wallet</h4>
@@ -40,8 +40,10 @@
     </form>
    
 </div>
+
  
   
 </ng-template>
 
 <button class="btn btn-outline-primary mb-2 mr-2" (click)="openBackDropCustomClass(content)">+</button>
+</div>
