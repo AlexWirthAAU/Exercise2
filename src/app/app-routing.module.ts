@@ -4,6 +4,7 @@ import { ConverterComponent } from './converter/converter.component';
 import { ForgotpwComponent } from './forgotpw/forgotpw.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetpwComponent } from './resetpw/resetpw.component';
+import { WalletsComponent } from './wallets/wallets.component';
 
 
 
@@ -22,6 +23,11 @@ const routes: Routes = [
     path: 'resetpw/:token',
     pathMatch: 'full',
     component: ResetpwComponent
+  },
+  {
+    path: 'wallets',
+    pathMatch: 'full',
+    component: WalletsComponent
   }
 
   {
