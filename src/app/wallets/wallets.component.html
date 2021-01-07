@@ -1,0 +1,36 @@
+<p>wallets works!</p>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Erstelle ein neues Wallet</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form [formGroup]="walletData">
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" formControlName="walletName" placeholder="name@example.com">
+      <label for="floatingInput">Wallet Name</label>
+    </div>
+    <div class="form-label-group">
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <label for="inputEmail">Email address</label>
+    </div>
+  
+    <label>
+      Wallet description:
+      <input type="text" formControlName="walletDesc">
+    </label>
+  
+  </form>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+  </div>
+ 
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-outline-primary mb-2 mr-2" (click)="openBackDropCustomClass(content)">+</button>
