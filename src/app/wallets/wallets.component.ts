@@ -29,7 +29,6 @@ export class WalletsComponent implements OnInit {
 
 
   constructor(public auth: AuthService, public api: ApiService, public router: Router, private modalService: NgbModal) {
-    //@Zoë fix this to only access the data when valid user id
    this.test = new FormControl('')
     this.home = "Haus";
    }
