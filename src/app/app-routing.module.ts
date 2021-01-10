@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ForgotpwComponent } from './forgotpw/forgotpw.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetpwComponent } from './resetpw/resetpw.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 import { WalletsComponent } from './wallets/wallets.component';
 
 
@@ -29,6 +30,11 @@ const routes: Routes = [
     pathMatch: 'full',
     component: WalletsComponent
   },
+  {
+    path: 'statistics',
+    pathMatch: 'full',
+    component: StatisticsComponent
+  }
 
  
 

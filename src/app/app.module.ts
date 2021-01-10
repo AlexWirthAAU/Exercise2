@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -14,6 +15,7 @@ import { ResetpwComponent } from './resetpw/resetpw.component';
 import { ConverterComponent } from './converter/converter.component';
 import { TickersComponent } from './converter/tickers/tickers.component';
 import { WalletsComponent } from './wallets/wallets.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { WalletsComponent } from './wallets/wallets.component';
     ResetpwComponent,
     ConverterComponent,
     TickersComponent,
-    WalletsComponent
+    WalletsComponent,
+    StatisticsComponent
   ],
   imports: [
     ReactiveFormsModule,
