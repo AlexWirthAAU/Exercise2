@@ -12,7 +12,7 @@ import { faWallet, faChartPie } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
   title = 'HashYourCash';
-  showMenu: boolean = true;
+  showMenu: boolean = false;
   contentClass: string;
   modalReference: any;
   faWallet = faWallet;
@@ -20,7 +20,7 @@ export class AppComponent {
 
   constructor(public auth: AuthService, public api: ApiService, public router: Router, public modalService: NgbModal) {
     this.loadUserData();
-    this.contentClass = "content-area-85";
+    this.contentClass = "content-area-100";
   }
 
   loadUserData() {

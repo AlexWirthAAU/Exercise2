@@ -10,3 +10,7 @@
 .btn-false {
     opacity: 0.5; 
 }
+
+.jumbotron {
+    padding-top: 20px;
+}

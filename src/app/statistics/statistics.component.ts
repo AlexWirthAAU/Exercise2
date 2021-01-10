@@ -13,10 +13,12 @@ export class StatisticsComponent implements OnInit {
   barChartCat: Chart;
   barChartPay: Chart;
 
-
   showCatPie: boolean = true;
   showCatBar: boolean = true;
   showPayBar: boolean = true;
+
+  catAmount: any[];
+  catLabels: any[];
 
   formData: any;
 
@@ -32,11 +34,11 @@ export class StatisticsComponent implements OnInit {
     this.piechart = new Chart("pieChart", {
       type: 'pie',
       data: {
-        labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+        labels: ["Auto", "Haushalt", "Technik", "Kleidung", "Versicherung"],
         datasets: [{
-          label: "Population (millions)",
+          label: "Ausgaben in €",
           backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-          data: [2478, 5267, 734, 784, 433]
+          data: [4000, 3267, 734, 784, 433]
         }]
       },
       options: {
@@ -51,11 +53,11 @@ export class StatisticsComponent implements OnInit {
     this.barChartCat = new Chart("barChartCat", {
       type: 'bar',
       data: {
-        labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+        labels: ["Auto", "Haushalt", "Technik", "Kleidung", "Versicherung"],
         datasets: [{
-          label: "Population (millions)",
+          label: "Ausgaben in €",
           backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-          data: [2478, 5267, 734, 784, 433]
+          data: [2478, 3267, 734, 784, 433]
         }]
       },
       options: {
@@ -78,7 +80,7 @@ export class StatisticsComponent implements OnInit {
         datasets: [{
           label: "Zahlungen",
           backgroundColor: ["#ad1818", "#046b12"],
-          data: [2478, 5267]
+          data: [800, 1300]
         }]
       },
       options: {
@@ -89,7 +91,14 @@ export class StatisticsComponent implements OnInit {
         },
         legend: {
           display: false,
-        }
+        },
+        scales: {
+          yAxes: [{
+              ticks: {
+                  beginAtZero: true
+              }
+          }]
+      }
       }
 
     })
@@ -109,6 +118,10 @@ export class StatisticsComponent implements OnInit {
     } else if (type === '3') {
       this.showPayBar = !this.showPayBar;
     }
+
+  }
+
+  prepareData() {
 
   }
 
