@@ -1,4 +1,5 @@
-<div *ngIf="!auth.loggedIn() && router.url !== '/register' && router.url !=='/forgotpw' && !router.url.includes('resetpw')">
+<div
+  *ngIf="!auth.loggedIn() && router.url !== '/register' && router.url !=='/forgotpw' && !router.url.includes('resetpw')">
   <app-login></app-login>
 </div>
 
@@ -31,6 +32,11 @@
         <fa-icon [icon]="faWallet" size="3x"></fa-icon><br>
         Meine Wallets
       </a>
+
+      <div class="bottom-menu">
+        <img src="assets/images/logo.png">
+        <p>HashYourCash</p>
+      </div>
 
     </div>
   </div>
